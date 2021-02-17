@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package factory;
+
+service Factory {
+    rpc Generate(GenerateRequest) returns (GenerateReply) {}
+}
+
+message GenerateRequest {
+    string source = 1;
+}
+
+message GenerateReply {
+    message Metadata {
+        int32 width = 1;
+        int32 height = 2;
+    }
+    string hash = 1;
+    Metadata metadata = 2;
+}
